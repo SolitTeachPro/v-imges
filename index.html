@@ -13,32 +13,63 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:24px;max-width:1200px;margin:0 auto}
   figure{margin:0;background:#161a22;border-radius:12px;overflow:hidden;border:1px solid #232936;transition:transform .2s}
   figure:hover{transform:translateY(-3px)}
-  figure img{display:block;width:100%;height:auto}
+  figure img{display:block;width:100%;height:auto;cursor:zoom-in}
   figcaption{padding:12px 16px;font-size:13px;color:#8a93a6;display:flex;justify-content:space-between;align-items:center}
   figcaption a{color:#7aa2f7;text-decoration:none}
   figcaption a:hover{text-decoration:underline}
   footer{text-align:center;padding:24px;color:#5b6478;font-size:12px}
+
+  /* fullscreen lightbox */
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:100}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:96vw;max-height:92vh;object-fit:contain;box-shadow:0 10px 40px rgba(0,0,0,.6);border-radius:6px}
+  .lb-close{position:absolute;top:16px;right:20px;background:none;border:0;color:#fff;font-size:32px;cursor:pointer;line-height:1;opacity:.85}
+  .lb-close:hover{opacity:1}
+  .lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:0;color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:22px;line-height:44px;text-align:center;backdrop-filter:blur(6px)}
+  .lb-prev{left:18px}.lb-next{right:18px}
+  .lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.22)}
+  .lb-name{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#cfd4e0;font-size:13px;background:rgba(0,0,0,.5);padding:6px 14px;border-radius:20px}
+  .lb-dl{position:absolute;top:16px;right:64px;color:#cfd4e0;text-decoration:none;font-size:13px;background:rgba(255,255,255,.12);padding:8px 14px;border-radius:8px}
+  .lb-dl:hover{background:rgba(255,255,255,.22)}
 </style>
 </head>
 <body>
 <header>
   <h1>v-imges</h1>
-  <p>image gallery · hosted on GitHub Pages</p>
+  <p>click any image to preview · ← / → to switch · esc to close</p>
 </header>
-<main class="grid">
-  <figure>
-    <img src="tx.jpg" alt="tx" loading="lazy">
-    <figcaption><span>tx.jpg</span><a href="tx.jpg" target="_blank">open</a></figcaption>
-  </figure>
-  <figure>
-    <img src="xg.png" alt="xg" loading="lazy">
-    <figcaption><span>xg.png</span><a href="xg.png" target="_blank">open</a></figcaption>
-  </figure>
-  <figure>
-    <img src="xy.webp" alt="xy" loading="lazy">
-    <figcaption><span>xy.webp</span><a href="xy.webp" target="_blank">open</a></figcaption>
-  </figure>
+<main class="grid" id="grid">
+  <figure><img src="tx.jpg" alt="tx" loading="lazy" data-name="tx.jpg"><figcaption><span>tx.jpg</span><a href="tx.jpg" target="_blank" rel="noopener">open</a></figcaption></figure>
+  <figure><img src="xg.png" alt="xg" loading="lazy" data-name="xg.png"><figcaption><span>xg.png</span><a href="xg.png" target="_blank" rel="noopener">open</a></figcaption></figure>
+  <figure><img src="xy.webp" alt="xy" loading="lazy" data-name="xy.webp"><figcaption><span>xy.webp</span><a href="xy.webp" target="_blank" rel="noopener">open</a></figcaption></figure>
 </main>
 <footer>© v-imges</footer>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" aria-label="close">×</button>
+  <a class="lb-dl" id="lbDl" href="#" download target="_blank">download</a>
+  <button class="lb-prev" id="lbPrev" aria-label="prev">‹</button>
+  <button class="lb-next" id="lbNext" aria-label="next">›</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-name" id="lbName"></div>
+</div>
+
+<script>
+  const imgs=[...document.querySelectorAll('#grid img')];
+  const lb=document.getElementById('lb');
+  const lbImg=document.getElementById('lbImg');
+  const lbName=document.getElementById('lbName');
+  const lbDl=document.getElementById('lbDl');
+  let idx=0;
+  function show(i){idx=(i+imgs.length)%imgs.length;const src=imgs[idx].src;lbImg.src=src;lbName.textContent=imgs[idx].dataset.name;lbDl.href=src}
+  function open(i){show(i);lb.classList.add('open')}
+  function close(){lb.classList.remove('open')}
+  imgs.forEach((el,i)=>el.addEventListener('click',e=>{e.preventDefault();open(i)}));
+  document.getElementById('lbClose').onclick=close;
+  document.getElementById('lbPrev').onclick=()=>show(idx-1);
+  document.getElementById('lbNext').onclick=()=>show(idx+1);
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+</script>
 </body>
 </html>
