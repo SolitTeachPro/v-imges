@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>v-imges</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f1115;color:#e6e6e6}
+  header{padding:32px 24px 12px;text-align:center}
+  header h1{margin:0 0 6px;font-size:28px;letter-spacing:.5px}
+  header p{margin:0;color:#8a93a6;font-size:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:24px;max-width:1200px;margin:0 auto}
+  figure{margin:0;background:#161a22;border-radius:12px;overflow:hidden;border:1px solid #232936;transition:transform .2s}
+  figure:hover{transform:translateY(-3px)}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{padding:12px 16px;font-size:13px;color:#8a93a6;display:flex;justify-content:space-between;align-items:center}
+  figcaption a{color:#7aa2f7;text-decoration:none}
+  figcaption a:hover{text-decoration:underline}
+  footer{text-align:center;padding:24px;color:#5b6478;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>v-imges</h1>
+  <p>image gallery · hosted on GitHub Pages</p>
+</header>
+<main class="grid">
+  <figure>
+    <img src="tx.jpg" alt="tx" loading="lazy">
+    <figcaption><span>tx.jpg</span><a href="tx.jpg" target="_blank">open</a></figcaption>
+  </figure>
+  <figure>
+    <img src="xg.png" alt="xg" loading="lazy">
+    <figcaption><span>xg.png</span><a href="xg.png" target="_blank">open</a></figcaption>
+  </figure>
+  <figure>
+    <img src="xy.webp" alt="xy" loading="lazy">
+    <figcaption><span>xy.webp</span><a href="xy.webp" target="_blank">open</a></figcaption>
+  </figure>
+</main>
+<footer>© v-imges</footer>
+</body>
+</html>
