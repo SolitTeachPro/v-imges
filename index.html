@@ -16,8 +16,13 @@
   figure a{display:block;flex:1}
   figure img{display:block;width:100%;height:100%;aspect-ratio:3/4;object-fit:cover}
   figcaption{padding:12px 16px;font-size:13px;color:#8a93a6;display:flex;justify-content:space-between;align-items:center}
-  figcaption a{color:#7aa2f7;text-decoration:none;margin-left:12px}
+  figcaption .actions{display:flex;align-items:center;gap:8px}
+  figcaption a{color:#7aa2f7;text-decoration:none}
   figcaption a:hover{text-decoration:underline}
+  .copy-link{border:1px solid #394254;background:#222836;color:#cfd4e0;border-radius:6px;padding:5px 9px;font:inherit;cursor:pointer;white-space:nowrap}
+  .copy-link:hover{background:#2b3445;border-color:#53617a}
+  .copy-link.copied{color:#8bd49c;border-color:#4d7c59;background:#203127}
+  .copy-link.failed{color:#f29d9d;border-color:#874f4f;background:#382525}
   footer{text-align:center;padding:24px;color:#5b6478;font-size:12px}
 </style>
 </head>
@@ -29,37 +34,76 @@
 <main class="grid">
   <figure>
     <a href="tx.html"><img src="tx.webp" alt="tx" loading="lazy"></a>
-    <figcaption><span>tx.webp</span><span><a href="tx.html">preview</a><a href="tx.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>tx.webp</span><span class="actions"><a href="tx.html">preview</a><a href="tx.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="tx.webp" aria-label="复制 tx.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
   <figure>
     <a href="xg.html"><img src="xg.webp" alt="xg" loading="lazy"></a>
-    <figcaption><span>xg.webp</span><span><a href="xg.html">preview</a><a href="xg.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>xg.webp</span><span class="actions"><a href="xg.html">preview</a><a href="xg.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="xg.webp" aria-label="复制 xg.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
   <figure>
     <a href="xy.html"><img src="xy.webp" alt="xy" loading="lazy"></a>
-    <figcaption><span>xy.webp</span><span><a href="xy.html">preview</a><a href="xy.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>xy.webp</span><span class="actions"><a href="xy.html">preview</a><a href="xy.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="xy.webp" aria-label="复制 xy.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
   <figure>
     <a href="ay.html"><img src="ay.webp" alt="ay" loading="lazy"></a>
-    <figcaption><span>ay.webp</span><span><a href="ay.html">preview</a><a href="ay.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>ay.webp</span><span class="actions"><a href="ay.html">preview</a><a href="ay.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="ay.webp" aria-label="复制 ay.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
   <figure>
     <a href="bb.html"><img src="bb.webp" alt="bb" loading="lazy"></a>
-    <figcaption><span>bb.webp</span><span><a href="bb.html">preview</a><a href="bb.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>bb.webp</span><span class="actions"><a href="bb.html">preview</a><a href="bb.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="bb.webp" aria-label="复制 bb.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
   <figure>
     <a href="xh2.html"><img src="xh2.webp" alt="xh2" loading="lazy"></a>
-    <figcaption><span>xh2.webp</span><span><a href="xh2.html">preview</a><a href="xh2.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>xh2.webp</span><span class="actions"><a href="xh2.html">preview</a><a href="xh2.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="xh2.webp" aria-label="复制 xh2.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
   <figure>
     <a href="xh3.html"><img src="xh3.webp" alt="xh3" loading="lazy"></a>
-    <figcaption><span>xh3.webp</span><span><a href="xh3.html">preview</a><a href="xh3.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>xh3.webp</span><span class="actions"><a href="xh3.html">preview</a><a href="xh3.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="xh3.webp" aria-label="复制 xh3.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
   <figure>
     <a href="xh7.html"><img src="xh7.webp" alt="xh7" loading="lazy"></a>
-    <figcaption><span>xh7.webp</span><span><a href="xh7.html">preview</a><a href="xh7.webp" target="_blank" rel="noopener">raw</a></span></figcaption>
+    <figcaption><span>xh7.webp</span><span class="actions"><a href="xh7.html">preview</a><a href="xh7.webp" target="_blank" rel="noopener">raw</a><button class="copy-link" type="button" data-image="xh7.webp" aria-label="复制 xh7.webp 图片链接">复制链接</button></span></figcaption>
   </figure>
 </main>
 <footer>© v-imges</footer>
+
+<script>
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const input = document.createElement('textarea');
+    input.value = text;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+    const copied = document.execCommand('copy');
+    input.remove();
+    if (!copied) throw new Error('copy failed');
+  }
+
+  document.querySelectorAll('.copy-link').forEach(button => {
+    button.addEventListener('click', async () => {
+      const imageUrl = new URL(button.dataset.image, window.location.href).href;
+      const originalText = button.textContent;
+      button.classList.remove('copied', 'failed');
+      try {
+        await copyText(imageUrl);
+        button.textContent = '已复制';
+        button.classList.add('copied');
+      } catch (error) {
+        button.textContent = '复制失败';
+        button.classList.add('failed');
+      }
+      window.setTimeout(() => {
+        button.textContent = originalText;
+        button.classList.remove('copied', 'failed');
+      }, 1600);
+    });
+  });
+</script>
 </body>
 </html>
